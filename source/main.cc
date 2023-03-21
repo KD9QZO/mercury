@@ -31,6 +31,7 @@
 #include "arq.h"
 
 
+
 int main(int argc, char *argv[])
 {
 	srand(time(0));
@@ -87,11 +88,12 @@ int main(int argc, char *argv[])
 	telecom_system.plot.folder="/mnt/ramDisk/";
 	telecom_system.plot.plot_active=NO;
 
+	telecom_system.microphone.dev_name="plughw:0,0";
+	telecom_system.speaker.dev_name="plughw:0,0";
 
 
 	telecom_system.data_container.sound_device_ptr=(void*)&telecom_system.microphone;
 	telecom_system.microphone.type=CAPTURE;
-	telecom_system.microphone.dev_name="plughw:1,0";
 	telecom_system.microphone.baudrate=telecom_system.sampling_frequency;
 	telecom_system.microphone.nbuffer_Samples=2 * telecom_system.ofdm.Nfft*(1+telecom_system.ofdm.gi)*telecom_system.frequency_interpolation_rate*telecom_system.ofdm.Nsymb;
 	telecom_system.microphone.channels=LEFT;
@@ -100,7 +102,6 @@ int main(int argc, char *argv[])
 	telecom_system.microphone.init();
 
 	telecom_system.speaker.type=PLAY;
-	telecom_system.speaker.dev_name="plughw:1,0";
 	telecom_system.speaker.baudrate=telecom_system.sampling_frequency;
 	telecom_system.speaker.nbuffer_Samples=2 * telecom_system.ofdm.Nfft*(1+telecom_system.ofdm.gi)*telecom_system.frequency_interpolation_rate*telecom_system.ofdm.Nsymb;
 	telecom_system.speaker.frames_per_period=telecom_system.ofdm.Nfft*(1+telecom_system.ofdm.gi)*telecom_system.frequency_interpolation_rate;
