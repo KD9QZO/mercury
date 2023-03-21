@@ -72,7 +72,6 @@ cl_arq_controller::cl_arq_controller()
 	messages_tx=NULL;
 	messages_rx=NULL;
 	message_TxRx_byte_buffer=NULL;
-//	message_TxRx_bit_buffer=NULL;
 	messages_batch_tx=NULL;
 	messages_batch_ack=NULL;
 	message_batch_counter_tx=0;
@@ -96,8 +95,6 @@ cl_arq_controller::cl_arq_controller()
 	ack_batch_padding=1;
 	my_call_sign="";
 	distination_call_sign="";
-//	data_ready_to_send=0;
-//	data_received=0;
 	telecom_system=NULL;
 
 }
@@ -152,10 +149,6 @@ cl_arq_controller::~cl_arq_controller()
 	{
 		delete[] message_TxRx_byte_buffer;
 	}
-//	if(message_TxRx_bit_buffer!=NULL)
-//	{
-//		delete[] message_TxRx_bit_buffer;
-//	}
 }
 int cl_arq_controller::add_message_control(char code)
 {
@@ -542,13 +535,6 @@ int cl_arq_controller::init()
 	{
 		success=MEMORY_ERROR;
 	}
-
-//	this->message_TxRx_bit_buffer=new char[max_message_length*8];
-//	if(this->message_TxRx_bit_buffer==NULL)
-//	{
-//		success=MEMORY_ERROR;
-//	}
-
 
 	return success;
 }

@@ -126,7 +126,6 @@ public:
 
   void set_nResends(int nResends);
   void set_ack_timeout(int ack_timeout);
-//  void set_keep_alive_timeout(int keep_alive_timeout);
   void set_link_timeout(int link_timeout);
   void set_nMessages(int nMessages);
   void set_max_data_length(int max_data_length);
@@ -202,9 +201,6 @@ public:
 
   int message_batch_counter_tx;
 
-//  int data_ready_to_send;
-//  int data_received;
-//  char* message_TxRx_bit_buffer;
   char* message_TxRx_byte_buffer;
   struct st_message messages_rx_buffer;
 
