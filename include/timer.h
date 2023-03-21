@@ -1,6 +1,6 @@
 /*
  * Mercury: A configurable open-source software-defined modem.
- * Copyright (C) 2022 Fadi Jerji
+ * Copyright (C) 2023 Fadi Jerji
  * Author: Fadi Jerji
  * Email: fadi.jerji@  <gmail.com, rhizomatica.org, caisresearch.com, ieee.org>
  * ORCID: 0000-0002-2076-5831
@@ -19,38 +19,42 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-#ifndef INC_DEFINES_H_
-#define INC_DEFINES_H_
 
+#ifndef INC_TIMER_H_
+#define INC_TIMER_H_
 
-#define N_MAX 1600
-#define C_WIDTH_MAX 200
-#define V_WIDTH_MAX 50
-#define D_WIDTH_MAX 2400
-
-
-#define IRA 0
-
-
-#define HERMES 0
-
-#define GBF 0
-
-
-#define NOT_HEALTHY -1
-#define UNKNOWN 0
-#define HEALTHY 1
+#include <ctime>
+#include <iostream>
 
 #define YES 1
 #define NO 0
 
-#define BER_PLOT_baseband 0
-#define BER_PLOT_passband 1
-#define TX_TEST 2
-#define RX_TEST 3
-#define TX_TCP 4
-#define RX_TCP 5
-#define ARQ_MODE 6
+#define COUNTING YES
+#define NOT_COUNTING NO
+
+class cl_timer
+{
+private:
+	struct timespec startTime, stopTime;
+public:
+	cl_timer();
+	~cl_timer();
+	void reset();
+	void start();
+	void _continue();
+	void stop();
+	void update();
+	void print();
+	int get_elapsed_time_ms();
+	int get_counter_status();
+	int seconds;
+	int miliSeconds;
+	int microseconds;
+	long int nanoseconds;
+	int counting;
+
+
+};
 
 
 #endif

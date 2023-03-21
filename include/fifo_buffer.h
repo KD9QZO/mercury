@@ -1,6 +1,6 @@
 /*
  * Mercury: A configurable open-source software-defined modem.
- * Copyright (C) 2022 Fadi Jerji
+ * Copyright (C) 2023 Fadi Jerji
  * Author: Fadi Jerji
  * Email: fadi.jerji@  <gmail.com, rhizomatica.org, caisresearch.com, ieee.org>
  * ORCID: 0000-0002-2076-5831
@@ -19,38 +19,37 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-#ifndef INC_DEFINES_H_
-#define INC_DEFINES_H_
+
+#ifndef INC_FIFO_BUFFER_H_
+#define INC_FIFO_BUFFER_H_
+
+#include <unistd.h>
+
+#define ERROR -1
+#define SUCCESSFUL 0
+
+class cl_fifo_buffer
+{
+
+public:
+	cl_fifo_buffer();
+  ~cl_fifo_buffer();
+
+  int set_size(int size);
+  int get_free_size();
+  int get_size();
+
+  int push(char* data, int length);
+  int pop(char* data, int length);
+
+private:
+  char* data;
+  int size;
+  int read_location;
+  int write_location;
 
 
-#define N_MAX 1600
-#define C_WIDTH_MAX 200
-#define V_WIDTH_MAX 50
-#define D_WIDTH_MAX 2400
-
-
-#define IRA 0
-
-
-#define HERMES 0
-
-#define GBF 0
-
-
-#define NOT_HEALTHY -1
-#define UNKNOWN 0
-#define HEALTHY 1
-
-#define YES 1
-#define NO 0
-
-#define BER_PLOT_baseband 0
-#define BER_PLOT_passband 1
-#define TX_TEST 2
-#define RX_TEST 3
-#define TX_TCP 4
-#define RX_TCP 5
-#define ARQ_MODE 6
+};
 
 
 #endif

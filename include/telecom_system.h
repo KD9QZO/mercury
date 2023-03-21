@@ -78,7 +78,6 @@ public:
 	int time_sync_trials_max;
 	int lock_time_sync;
 	st_receive_stats receive_stats;
-	cl_tcp_socket tcp_socket;
 
 	double output_power_Watt;
 

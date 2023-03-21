@@ -37,7 +37,6 @@ cl_telecom_system::cl_telecom_system()
 	output_power_Watt=1;
 	carrier_amplitude=sqrt(2.0);
 	receive_stats.signal_stregth_dbm=-999;
-	tcp_socket.set_type(TYPE_SERVER);
 }
 
 
