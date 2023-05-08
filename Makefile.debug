@@ -18,8 +18,8 @@ ECHO    ?= echo
 
 CSTD    := gnu11
 CXXSTD  := gnu++14
-OPTLVL  := 3
-DBGLVL  := 0
+OPTLVL  := g
+DBGLVL  := 3
 
 
 INC_DIRS := -I./include
