@@ -22,6 +22,10 @@ OPTLVL  := 3
 DBGLVL  := 0
 
 
+DEFINES := -DNDEBUG
+DEFINES += -UDEBUG
+
+
 INC_DIRS := -I./include
 
 LIBS     := -lasound
@@ -29,8 +33,8 @@ LIB_DIRS :=
 
 
 LDFLAGS  := -lasound
-CFLAGS   := -std=$(CSTD) -O$(OPTLVL) -g$(DBGLVL) -Wall -Wno-format $(INC_DIRS)
-CXXFLAGS := -std=$(CXXSTD) -O$(OPTLVL) -g$(DBGLVL) -Wall -Wno-format $(INC_DIRS)
+CFLAGS   := -std=$(CSTD) -O$(OPTLVL) -g$(DBGLVL) $(DEFINES) -Wall -Wno-format $(INC_DIRS)
+CXXFLAGS := -std=$(CXXSTD) -O$(OPTLVL) -g$(DBGLVL) $(DEFINES) -Wall -Wno-format $(INC_DIRS)
 LDFLAGS  := $(LIB_DIRS) $(LIBS)
 
 
